@@ -33,7 +33,7 @@ C++ es un lenguaje robusto, eficiente y ampliamente usado en sistemas de alto re
 Las ayudantías del semestre se encuentran organizadas en las siguientes carpetas:
 
 - **[Ayudantía 1](Ayudantía%201/README.md)** - Introducción a C++ y punteros
-
+- **[Ayudantía 2](Ayudantía%202/README.md)** - POO en C++, herencia y polimorfismo
 ---
 
 ## Temario
