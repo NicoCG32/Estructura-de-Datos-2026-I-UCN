@@ -1,63 +1,108 @@
 # Ayudantía 2: POO en C++, Herencia y Polimorfismo
 
+## Repaso de la Ayudantía 1: `*`, `&`, punteros y referencias
+
+Antes de entrar en herencia y polimorfismo, repasemos una base clave de la ayudantía anterior.
+
+### Operador `*`
+
+- En una declaración, `*` indica que la variable es un **puntero**.
+- Ejemplo: `int* p;` significa que `p` guarda una dirección de memoria de un `int`.
+- En una expresión, `*` sirve para **desreferenciar**: acceder al valor apuntado.
+- Ejemplo: si `p` apunta a `x`, entonces `*p` es el valor de `x`.
+
+### Operador `&`
+
+- En una expresión, `&` obtiene la **dirección de memoria** de una variable.
+- Ejemplo: `p = &x;` guarda en `p` la dirección de `x`.
+
+### Variables de tipo puntero (`Tipo*`)
+
+- Una variable puntero no guarda directamente un valor como `7` o `20`, sino una dirección.
+- Esto permite modificar datos indirectamente y trabajar con memoria dinámica.
+
+Ejemplo rápido:
+
+```cpp
+int x = 10;
+int* p = &x;
+*p = 25;   // modifica x a través del puntero
+```
+
+### Lo que faltó ver: variable de tipo referencia (`Tipo&`)
+
+También nos faltó dejar explícito que en C++ existe la **referencia**, escrita como `Tipo&`.
+
+- Una referencia es un alias (otro nombre) para una variable existente.
+- A diferencia del puntero, no se usa `*` para acceder al valor.
+- Muy útil para pasar objetos a funciones sin copiar y sin usar punteros explícitos.
+
+Ejemplo rápido:
+
+```cpp
+int x = 10;
+int& r = x;   // r es referencia a x
+r = 30;       // también modifica x
+```
+
+- Si quieres trabajar con direcciones explícitas y posible `nullptr`, usa punteros (`Tipo*`).
+- Si quieres un alias seguro sin `nullptr` y sin copia, usa referencias (`Tipo&`).
+
+#### Punteros a punteros (`Tipo**`)
+
+Un puntero a puntero es una variable que almacena la **dirección de otra variable puntero**.
+
+```cpp
+int x = 10;
+int* p = &x;        // p es puntero a int
+int** pp = &p;      // pp es puntero a puntero
+
+*pp = &x;           // redirige p a apuntar a x
+**pp = 25;          // modifica x a través del doble puntero
+```
+
+**Uso común:** Pasar punteros a funciones si quieres que la función cambie dónde apunta el puntero.
+
+#### Referencias rvalue (`Tipo&&`)
+
+`Tipo&&` **NO es una referencia a una referencia**, sino una **referencia rvalue** (C++11 o más). Es un concepto avanzado relacionado con **move semantics** (optimización de memoria), no es relevante para el curso.
+
 ## Repaso POO
 
-### Referencias
-
-Fuentes de apoyo didactico (introductorias):
-
-- GeeksforGeeks. Object Oriented Programming in C++. https://www.geeksforgeeks.org/cpp/object-oriented-programming-in-cpp/
-- W3Schools. C++ Inheritance. https://www.w3schools.com/cpp/cpp_inheritance.asp
-- W3Schools. C++ Polymorphism. https://www.w3schools.com/cpp/cpp_polymorphism.asp
-
-Fuentes principales (Documentación oficial de C++):
-
-- cppreference. C++ language: classes. https://en.cppreference.com/w/cpp/language/classes
-- cppreference. C++ language: derived classes (herencia). https://en.cppreference.com/w/cpp/language/derived_class
-- cppreference. C++ language: virtual function. https://en.cppreference.com/w/cpp/language/virtual
-- cppreference. C++ language: override specifier. https://en.cppreference.com/w/cpp/language/override
-- cppreference. C++ language: destructor. https://en.cppreference.com/w/cpp/language/destructor
-- cppreference. C++ language: this pointer. https://en.cppreference.com/w/cpp/language/this
-- cppreference. C++ language: const_cast y const-correctness. https://en.cppreference.com/w/cpp/language/const_cast
-- cppreference. C++ language: reference declaration (`&`). https://en.cppreference.com/w/cpp/language/reference
-- cppreference. C++ language: access specifiers (public/protected/private). https://en.cppreference.com/w/cpp/language/access
-
-Puente rapido C++ vs Java (para toda la ayudantia):
-
-- C++ permite objetos en stack y heap; Java usa objetos en heap con recoleccion de basura.
+- C++ permite objetos en stack y heap; Java usa objetos en heap con recolección de basura.
 - En C++, `new` exige `delete` manual; en Java no existe `delete`.
 - En C++, pasar `Tipo x` copia el objeto; en Java pasar un objeto comparte la misma instancia (referencia por valor).
-- En C++, `virtual` es explicito; en Java los metodos son virtuales por defecto (excepto `final`, `static`, `private`).
-- En C++, destructor puede ser virtual y controla liberacion; en Java no hay destructores equivalentes para liberar memoria.
-- C++ permite herencia multiple de clases; Java no (solo una clase + multiples interfaces).
+- En C++, `virtual` es explícito; en Java los métodos son virtuales por defecto (excepto `final`, `static`, `private`).
+- En C++, destructor puede ser virtual y controla liberación; en Java no hay destructores equivalentes para liberar memoria.
+- C++ permite herencia múltiple de clases; Java no (solo una clase + múltiples interfaces).
 - `struct` en C++ es similar a `class`, cambiando principalmente el acceso por defecto (`public`).
 
 ### Tabla Resumen Rápido (Herencia y Polimorfismo en C++)
 
-| Caso | Declaracion | NO virtual ejecuta | Virtual ejecuta | Construccion | Destruccion | Delete por puntero base | Memoria |
+| Caso | Declaración | NO virtual ejecuta | Virtual ejecuta | Construcción | Destrucción | Delete por puntero base | Memoria |
 |------|-------------|--------------------|-----------------|--------------|-------------|-------------------------|---------|
-| Estatico a clase | `Padre c;` | `Padre` | `Padre` | `Padre` | `Padre` | No aplica | Seguro |
-| Estatico a hijo | `Hijo h;` | `Hijo` | `Hijo` | `Padre -> Hijo` | `Hijo -> Padre` | No aplica | Seguro |
-| Dinamico a clase | `Padre* p = new Padre;` | `Padre` | `Padre` | `Padre` | `Padre` | `delete p` correcto | Seguro |
-| Dinamico a hijo (correcto) | `Padre* p = new Hijo;` con `virtual ~Padre()` | `Padre` (por tipo del puntero) | `Hijo` (despacho dinamico) | `Padre -> Hijo` | `Hijo -> Padre` | `delete p` correcto | Seguro |
-| Dinamico a hijo (error) | `Padre* p = new Hijo;` sin `virtual ~Padre()` | `Padre` | `Hijo` | `Padre -> Hijo` | Indefinida o incompleta | `delete p` peligroso | ERROR de memoria |
+| Estático a clase | `Padre c;` | `Padre` | `Padre` | `Padre` | `Padre` | No aplica | Seguro |
+| Estático a hijo | `Hijo h;` | `Hijo` | `Hijo` | `Padre -> Hijo` | `Hijo -> Padre` | No aplica | Seguro |
+| Dinámico a clase | `Padre* p = new Padre;` | `Padre` | `Padre` | `Padre` | `Padre` | `delete p` correcto | Seguro |
+| Dinámico a hijo (correcto) | `Padre* p = new Hijo;` con `virtual ~Padre()` | `Padre` (por tipo del puntero) | `Hijo` (despacho dinámico) | `Padre -> Hijo` | `Hijo -> Padre` | `delete p` correcto | Seguro |
+| Dinámico a hijo (error) | `Padre* p = new Hijo;` sin `virtual ~Padre()` | `Padre` | `Hijo` | `Padre -> Hijo` | Indefinida o incompleta | `delete p` peligroso | ERROR de memoria |
 
-- Metodo virtual: decide que implementacion se ejecuta en la llamada.
-- Destructor virtual: decide si al hacer delete por base se destruye tambien el hijo.
+- Método virtual: decide qué implementación se ejecuta en la llamada.
+- Destructor virtual: decide si al hacer delete por base se destruye también el hijo.
 - Si aparece `Padre* p = new Hijo`, exige `virtual ~Padre()`.
 
-Comparacion directa con Java en esta tabla:
+Comparación directa con Java en esta tabla:
 
-- El caso critico de `delete` y destructor virtual es propio de C++ (en Java no hay `delete`).
-- La diferencia entre no virtual y virtual en C++ se enseña explicita; en Java normalmente ya se comporta como virtual.
+- El caso crítico de `delete` y destructor virtual es propio de C++ (en Java no hay `delete`).
+- La diferencia entre no virtual y virtual en C++ se enseña explícita; en Java normalmente ya se comporta como virtual.
 
 #### Regla para recordar
 
-- Metodo `virtual` decide **que metodo se ejecuta**.
-- Destructor `virtual` decide **que destructores se ejecutan al liberar por puntero base**.
+- Método `virtual` decide **qué método se ejecuta**.
+- Destructor `virtual` decide **qué destructores se ejecutan al liberar por puntero base**.
 - Si hay `Padre* p = new Hijo;`, la clase base **debe** tener destructor virtual.
 
-#### Ejemplo minimo
+#### Ejemplo mínimo
 
 ```cpp
 #include <iostream>
@@ -105,7 +150,7 @@ int main() {
 }
 ```
 
-Salida esperada (orden cronologico):
+Salida esperada (orden cronológico):
 
 ```text
 [1] Crear objeto estatico Hijo h
@@ -135,17 +180,17 @@ Nota de error de memoria:
 Mini-regla de estos casos:
 
 - Si quieres polimorfismo, evita copiar por valor (`Padre c = h`) porque provoca slicing.
-- En diamante, usa herencia virtual para evitar duplicar la base comun.
-- En Java no existe object slicing porque las variables de objetos manejan referencias, no copias implicitas del objeto al asignar.
+- En diamante, usa herencia virtual para evitar duplicar la base común.
+- En Java no existe object slicing porque las variables de objetos manejan referencias, no copias implícitas del objeto al asignar.
 
 ### Casos extra importantes a considerar
 
-| Caso extra | Ejemplo corto | Que pasa | Riesgo |
+| Caso extra | Ejemplo corto | Qué pasa | Riesgo |
 |-----------|---------------|----------|--------|
 | Referencia a base (polimorfismo sin `new`) | `Padre& r = h;` | NO virtual usa `Padre`; virtual usa `Hijo`; no hay `delete` | Seguro |
-| Object slicing (copia por valor) | `Padre c = h;` | Se pierde la parte `Hijo`; desde ahi se comporta como `Padre` | Error conceptual frecuente |
-| Clase abstracta | `virtual void f() = 0;` | No se puede instanciar la base; fuerza contrato de metodos | Seguro, mejora diseno |
-| Diamante en herencia multiple | `A <- B, C <- D` | Sin herencia virtual hay dos subobjetos `A` y ambiguedad | Error conceptual / diseno |
+| Object slicing (copia por valor) | `Padre c = h;` | Se pierde la parte `Hijo`; desde ahí se comporta como `Padre` | Error conceptual frecuente |
+| Clase abstracta | `virtual void f() = 0;` | No se puede instanciar la base; fuerza contrato de métodos | Seguro, mejora diseño |
+| Diamante en herencia múltiple | `A <- B, C <- D` | Sin herencia virtual hay dos subobjetos `A` y ambigüedad | Error conceptual / diseño |
 
 #### Mini-caso: doble herencia (`Hijo : Padre, Madre`)
 
@@ -218,29 +263,27 @@ Destruyendo Madre
 Destruyendo Padre
 ```
 
-Puntos clave:
-
-- El orden de construccion depende de la declaracion de la clase derivada: `Hijo : Padre, Madre`.
-- El orden de destruccion es el inverso: primero `Hijo`, luego `Madre`, luego `Padre`.
-- Los metodos virtuales se resuelven por tipo real del objeto (`Hijo`), aunque el puntero sea `Padre*` o `Madre*`.
+- El orden de construcción depende de la declaración de la clase derivada: `Hijo : Padre, Madre`.
+- El orden de destrucción es el inverso: primero `Hijo`, luego `Madre`, luego `Padre`.
+- Los métodos virtuales se resuelven por tipo real del objeto (`Hijo`), aunque el puntero sea `Padre*` o `Madre*`.
 
 Nota sobre punteros:
 
-- Si usas punteros (`Padre* p = new Hijo;` o `Madre* m = new Hijo;`) y haces `delete`, el orden de destruccion correcto sigue siendo `Hijo -> Madre -> Padre`, siempre que los destructores base sean virtuales.
-- Si el destructor de la base NO es virtual, `delete` por puntero base puede producir comportamiento indefinido (destruccion incompleta y riesgo de memoria).
+- Si usas punteros (`Padre* p = new Hijo;` o `Madre* m = new Hijo;`) y haces `delete`, el orden de destrucción correcto sigue siendo `Hijo -> Madre -> Padre`, siempre que los destructores base sean virtuales.
+- Si el destructor de la base NO es virtual, `delete` por puntero base puede producir comportamiento indefinido (destrucción incompleta y riesgo de memoria).
 
-Comparacion con Java:
+Comparación con Java:
 
-- Java no permite herencia multiple de clases como `Hijo : Padre, Madre`; ese patron se resuelve con interfaces.
-- En Java no se enseña orden de destruccion por destructores porque la memoria la maneja el Garbage Collector.
+- Java no permite herencia múltiple de clases como `Hijo : Padre, Madre`; ese patrón se resuelve con interfaces.
+- En Java no se enseña orden de destrucción por destructores porque la memoria la maneja el Garbage Collector.
 
 ---
 
 ### Funciones y tipos de datos no primitivos
 
-En POO, al pasar objetos a funciones, lo mas importante es evitar copias innecesarias y dejar claro si la funcion puede modificar o no el objeto.
+En POO, al pasar objetos a funciones, lo más importante es evitar copias innecesarias y dejar claro si la función puede modificar o no el objeto.
 
-`const` significa **constante**: dentro de esa funcion no puedes modificar ese objeto.
+`const` significa **constante**: dentro de esa función no puedes modificar ese objeto.
 
 Como base de comparación con Java, esta diferencia es clave:
 
@@ -249,31 +292,31 @@ Como base de comparación con Java, esta diferencia es clave:
 
 - Si solo quieres leer: usa `const Tipo&`.
 - Si quieres modificar sin punteros: usa `Tipo&`.
-- Si trabajas con punteros (como en esta ayudantia): usa `Tipo*` para modificar y `const Tipo*` para solo lectura.
+- Si trabajas con punteros (como en esta ayudantía): usa `Tipo*` para modificar y `const Tipo*` para solo lectura.
 
-Ejemplo mental rapido (Java vs C++):
+Ejemplo mental rápido (Java vs C++):
 
 - C++: `void f(Alumno a)` -> copia de `Alumno`.
 - C++: `void f(Alumno& a)` -> mismo objeto original.
 - Java: `void f(Alumno a)` -> misma instancia, pero la referencia se pasa por valor.
 
-Resumen rapido:
+Resumen rápido:
 
 | Forma | Firma | Copia objeto | Puede modificar | Comentario |
 |------|-------|--------------|-----------------|------------|
-| Por valor | `void f(Tipo x)` | Si | Solo la copia | Suele ser mas caro en objetos grandes |
-| Por referencia | `void f(Tipo& x)` | No | Si | Eficiente y sin `nullptr` |
-| Por referencia constante | `void f(const Tipo& x)` | No | No | Opcion recomendada para lectura |
-| Por puntero | `void f(Tipo* x)` | No | Si | Puede ser `nullptr`, hay que validar |
+| Por valor | `void f(Tipo x)` | Sí | Solo la copia | Suele ser más caro en objetos grandes |
+| Por referencia | `void f(Tipo& x)` | No | Sí | Eficiente y sin `nullptr` |
+| Por referencia constante | `void f(const Tipo& x)` | No | No | Opción recomendada para lectura |
+| Por puntero | `void f(Tipo* x)` | No | Sí | Puede ser `nullptr`, hay que validar |
 | Por puntero constante | `void f(const Tipo* x)` | No | No | Lectura por puntero |
 
-Traduccion rapida C++ vs Java:
+Traducción rápida C++ vs Java:
 
-- Lo mas parecido al comportamiento usual de Java es `Tipo&` o `Tipo*` (segun estilo), no `Tipo` por valor.
+- Lo más parecido al comportamiento usual de Java es `Tipo&` o `Tipo*` (según estilo), no `Tipo` por valor.
 - En C++, `Tipo` por valor se usa cuando **quieres** copiar.
-- En Java, escribir `f(obj)` nunca copia el objeto completo; en C++ puede copiarse segun la firma.
+- En Java, escribir `f(obj)` nunca copia el objeto completo; en C++ puede copiarse según la firma.
 
-#### Ejemplo: estaticos y dinamicos enviados a funciones
+#### Ejemplo: estáticos y dinámicos enviados a funciones
 
 ```cpp
 #include <iostream>
@@ -341,20 +384,20 @@ int main() {
 }
 ```
 
-- Aunque aqui trabajen mucho con punteros, `const Tipo&` es la forma estandar de solo lectura en C++ moderno, posiblemente lo vean mucho si ocupan inteligencia artificial.
+- Aunque aquí trabajen mucho con punteros, `const Tipo&` es la forma estándar de solo lectura en C++ moderno, posiblemente lo vean mucho si ocupan inteligencia artificial.
 - `&` (referencia) evita copias y evita el caso `nullptr`.
 - En punteros, siempre validar `nullptr` antes de usar `->`.
 
 ---
 
-### Inciso final: que es `struct` y cuando conviene
+### Inciso final: qué es `struct` y cuándo conviene
 
 `struct` en C++ es casi igual a `class`, pero con una diferencia clave por defecto:
 
 - En `struct`, los miembros son `public` por defecto.
 - En `class`, los miembros son `private` por defecto.
 
-Por eso, para ejercicios rapidos o modelos simples de datos, `struct` ahorra tiempo cuando no quieres gastar esfuerzo inicial en encapsulamiento (getters/setters, niveles de acceso, etc.).
+Por eso, para ejercicios rápidos o modelos simples de datos, `struct` ahorra tiempo cuando no quieres gastar esfuerzo inicial en encapsulamiento (getters/setters, niveles de acceso, etc.).
 
 Ejemplo simple:
 
@@ -380,9 +423,9 @@ int main() {
 }
 ```
 
-Cuando usar `struct` en esta ayudantia:
+Cuando usar `struct` en esta ayudantía:
 
-- Para representar datos simples rapidamente.
+- Para representar datos simples rápidamente.
 - Para ejemplos cortos donde el foco no es encapsulamiento.
 
 Cuando preferir `class`:
@@ -390,9 +433,9 @@ Cuando preferir `class`:
 - Cuando quieres proteger invariantes del objeto.
 - Cuando necesitas controlar acceso y reglas internas de negocio.
 
-Comparacion con Java:
+Comparación con Java:
 
-- Java usa `class` para casi todo; C++ separa muy bien `struct` (datos simples) y `class` (encapsulamiento fuerte) por convencion.
+- Java usa `class` para casi todo; C++ separa muy bien `struct` (datos simples) y `class` (encapsulamiento fuerte) por convención.
 
 
 ## Ejercicios de herencia
@@ -687,10 +730,10 @@ int main() {
 
 ### Ejercicio 4
 
-Comparacion con Java:
+Comparación con Java:
 
-- En C++ hay que marcar `virtual` para despacho dinamico; en Java eso ocurre por defecto en metodos de instancia.
-- El metodo no virtual aqui se parece mas a un metodo `static/final/private` en Java respecto al enlace.
+- En C++ hay que marcar `virtual` para despacho dinámico; en Java eso ocurre por defecto en métodos de instancia.
+- El método no virtual aquí se parece más a un método `static/final/private` en Java respecto al enlace.
 
 ```cpp
 #include <iostream>
@@ -1028,3 +1071,25 @@ int main() {
 **Rutee claramente e indique la salida.**
 
 ---
+
+### Referencias
+
+Fuentes de apoyo didáctico (introductorias):
+
+- GeeksforGeeks. Object Oriented Programming in C++. https://www.geeksforgeeks.org/cpp/object-oriented-programming-in-cpp/
+- W3Schools. C++ Inheritance. https://www.w3schools.com/cpp/cpp_inheritance.asp
+- W3Schools. C++ Polymorphism. https://www.w3schools.com/cpp/cpp_polymorphism.asp
+
+Fuentes principales (Documentación oficial de C++):
+
+- cppreference. C++ language: classes. https://en.cppreference.com/w/cpp/language/classes
+- cppreference. C++ language: derived classes (herencia). https://en.cppreference.com/w/cpp/language/derived_class
+- cppreference. C++ language: virtual function. https://en.cppreference.com/w/cpp/language/virtual
+- cppreference. C++ language: override specifier. https://en.cppreference.com/w/cpp/language/override
+- cppreference. C++ language: destructor. https://en.cppreference.com/w/cpp/language/destructor
+- cppreference. C++ language: this pointer. https://en.cppreference.com/w/cpp/language/this
+- cppreference. C++ language: const_cast y const-correctness. https://en.cppreference.com/w/cpp/language/const_cast
+- cppreference. C++ language: reference declaration (`&`). https://en.cppreference.com/w/cpp/language/reference
+- cppreference. C++ language: access specifiers (public/protected/private). https://en.cppreference.com/w/cpp/language/access
+
+Puente rápido C++ vs Java (para toda la ayudantía):
