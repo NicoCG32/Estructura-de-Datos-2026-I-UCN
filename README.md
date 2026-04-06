@@ -34,6 +34,7 @@ Las ayudantías del semestre se encuentran organizadas en las siguientes carpeta
 
 - **[Ayudantía 1](Ayudantía%201/README.md)** - Introducción a C++ y punteros
 - **[Ayudantía 2](Ayudantía%202/README.md)** - POO en C++, herencia y polimorfismo
+- **[Ayudantía 3](Ayudantía%203/README.md)** - Organización de archivos, Listas enlazadas y Stack 
 ---
 
 ## Temario
