@@ -1,6 +1,6 @@
 # Ayudantía 4: Complejidad en algoritmos
 
-### Ejercicio 1: Suma de dos listas de dígitos
+## Ejercicio 1: Suma de dos listas de dígitos
 
 Problema de repaso:
 
@@ -82,7 +82,9 @@ Para medir tiempo, definimos una operación activa y contamos cuántas veces se 
 - O(n!): crecimiento factorial.
     Ejemplo explicado: en problemas de permutaciones (como probar todos los ordenes posibles de n tareas), para 5 elementos hay 120 casos, para 10 hay 3.628.800. Crece mas rapido que cualquier polinomio.
 
-# Ejercicio 2: Lectura de algoritmos, Listas, Pilas y Colas
+---
+
+## Ejercicio 2: Lectura de algoritmos, Listas, Pilas y Colas
 
 Implemente la función `filtrar_patron_multiple` que gestiona y reordena una secuencia de valores enteros basándose en dos patrones:
 
@@ -101,7 +103,9 @@ int filtrar_patron_multiple(queue<int> Q_datos, stack<int> P_frecuencia,
 | 1    | `[10, 3, 5, 8, 2, 12, 4, 9]` | `[]`         | `[]`       | 7 | 3 | `2`    |
 | 2    | `[1, 20, 3, 40, 5, 6, 7]`    | `[]`         | `[]`       | 5 | 2 | `1`    |
 
-# Ejercicio 3: Interpretación de algoritmo
+---
+
+## Ejercicio 3: Interpretación de algoritmos
 
 En una línea de ensamblaje se reciben 2 tipos de piezas (**A** y **B**). Para poder armar un objeto se debe recibir una pieza **A** y luego una pieza **B** (no necesariamente de manera consecutiva pero sí en ese orden).
 
@@ -119,14 +123,15 @@ bool estadoLineaEnsamblaje(string linea);
 | AAABB      | false  | Queda una pieza A almacenada sin utilizar |
 | ABBA       | false  | Al llegar la segunda pieza B no hay ninguna pieza A almacenada |
 
-### Ejercicio 4: Generar números binarios
+---
+
+## Ejercicio 4: Generar números binarios
 
 Problema:
 
 Dado un entero positivo `n`, genera los primeros `n` números binarios en orden creciente. El resultado debe quedar almacenado en una lista o vector de salida.
 
 Firma:
-
 ```cpp
 vector<string> generarBinarios(int n);
 ```
@@ -138,3 +143,62 @@ Ejemplos de ejecución:
 | `1` | `1` |
 | `3` | `1, 10, 11` |
 | `7` | `1, 10, 11, 100, 101, 110, 111` |
+
+---
+
+## Ejercicio 5: Guardar estados
+
+Implemente una función que decodifique cadenas con el formato:
+```text
+K[text]
+```
+Donde `K` es un entero positivo y `text` se repite `K` veces.  
+La cadena puede contener **anidamiento**
+```text
+Ej: K1[text1K2[text2K3...[...]]].
+```
+
+Firma:
+```cpp
+string decodeString(string s);
+```
+
+Ejemplos de ejecución:
+
+| Entrada | Salida |
+|--------|--------|
+| `5[abcd]` | `abcdabcdabcdabcdabcd` |
+| `3[ab2[cd]]` | `abcdcdabcdcdabcdcd` |
+
+Consideraciones:
+
+- Solución **iterativa (sin recursión)**
+- `text` contiene solo letras (`a-z`, `A-Z`)
+- Si aparece un número, siempre precede a `[`
+- Puedes usar `isdigit(c)` para detectar números
+
+---
+
+## Ejercicio 6: Más estados
+
+Implemente una función que determine si una cadena `p2` puede obtenerse reordenando los caracteres de `p1`, es decir, si ambas son **anagramas**.
+
+Firma:
+```cpp
+bool esAnagrama(string p1, string p2);
+```
+
+Consideraciones:
+
+- Solución **iterativa (sin recursión)**
+- Debes considerar la **frecuencia** de cada carácter
+
+Ejemplos de salida:
+
+| Entrada | Salida |
+|--------|--------|
+| `("roma", "amor")` | `true` |
+| `("listen", "silent")` | `true` |
+| `("hola", "halo")` | `true` |
+| `("aabb", "abbb")` | `false` |
+| `("abc", "abcc")` | `false` |
