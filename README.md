@@ -45,7 +45,7 @@ Las ayudantías del semestre se encuentran organizadas en las siguientes carpeta
 
 ### PP2
 
-- **[Ayudantí­a 6](Ayudantí­a%206/README.md)** - Recorridos de arboles binarios
+- **[Ayudantí­a 6](Ayudantía%206/README.md)** - Recorridos de arboles binarios
 ---
 
 ## Temario
