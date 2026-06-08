@@ -1,4 +1,19 @@
 # Ayudantía Estructura de Datos
+## Contenido
+
+- [Introducción](#introduccion)
+- [¿Qué son "Data Structures and Algorithms"?](#que-son-data-structures-and-algorithms)
+- [Desafíos para Nuevos Programadores](#desafios-para-nuevos-programadores)
+- [C++ y su Importancia en Programación](#c-y-su-importancia-en-programacion)
+- [📚 Ayudantías](#-ayudantias)
+  - [PP1](#pp1)
+  - [PP2](#pp2)
+- [Temario](#temario)
+  - [Conceptos Fundamentales](#conceptos-fundamentales)
+  - [Estructuras de Datos](#estructuras-de-datos)
+- [Nota Importante: Transición desde Java](#nota-importante-transicion-desde-java)
+  - [Memoria local, global y heap (aclaración clave)](#memoria-local-global-y-heap-aclaracion-clave)
+
 
 **Profesor de Cátedra:** Bastián Ruiz
 
@@ -32,6 +47,10 @@ C++ es un lenguaje robusto, eficiente y ampliamente usado en sistemas de alto re
 
 Las ayudantías del semestre se encuentran organizadas en las siguientes carpetas:
 
+### Compendio
+
+- **[Compendio](Compendio/README.md)** - Banco de ejercicios por temas y soluciones para la PP1
+
 ### PP1
 
 - **[Ayudantía 1](Ayudantía%201/README.md)** - Introducción a C++ y punteros
@@ -41,14 +60,12 @@ Las ayudantías del semestre se encuentran organizadas en las siguientes carpeta
 - **[Ayudantía 5](Ayudantía%205/README.md)** - Repaso final antes de la PP1
 
 - **[Intensiva I](Intensiva%20I/README.md)** - Ruta seleccionada para la intensiva PP1
-- **[Compendio](Compendio/README.md)** - Banco de ejercicios por temas y soluciones para la PP1
 
 ### PP2
 
-- **[Ayudantí­a 6](Ayudantía%206/README.md)** - Recorridos de arboles binarios
+- **[Ayudantí­a 6](Ayudantía%206/README.md)** - Recorridos de árboles binarios
 - **[Ayudantía 7](Ayudantía%207/README.md)** - Heaps y HeapSort
-- **[Ayudantía 8](Ayudantía%208/README.md)** - Arboles AVL
----
+- **[Ayudantía 8](Ayudantía%208/README.md)** - Árboles AVL
 
 ## Temario
 

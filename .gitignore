@@ -1,1 +1,6 @@
 *.drawio
+/.venv
+/tools
+/.vscode
+/.idea
+/bin

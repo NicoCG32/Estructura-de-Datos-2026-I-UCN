@@ -1,10 +1,18 @@
-# Ayudantia 5: Soluciones
+# Ayudantía 5: Soluciones
+## Índice
 
-En esta guia se privilegia claridad conceptual:
+- [Ejercicio 1: Evaluar expresión Postfix con stack](#ejercicio-1-evaluar-expresión-postfix-con-stack)
+- [Ejercicio 2: Es anagrama usando una queue](#ejercicio-2-es-anagrama-usando-una-queue)
+- [Ejercicio 3: Es anagrama usando una stack](#ejercicio-3-es-anagrama-usando-una-stack)
+- [Ejercicio 4: Reordenar una lista intercalando extremos](#ejercicio-4-reordenar-una-lista-intercalando-extremos)
+- [Ejercicio 5: Colapsar bloques estrictamente crecientes](#ejercicio-5-colapsar-bloques-estrictamente-crecientes)
+
+
+En esta guía se privilegia claridad conceptual:
 
 - que estado guarda cada estructura;
 - como cambia ese estado paso a paso;
-- por que la solucion respeta las restricciones del enunciado;
+- por qué la solución respeta las restricciones del enunciado;
 - cual es la complejidad temporal y espacial real.
 
 Se asume:
@@ -26,11 +34,11 @@ struct Node {
 
 ---
 
-## Ejercicio 1: Evaluar expresion Postfix con stack
+### Ejercicio 1: Evaluar expresión Postfix con stack
 
 ### Idea general
 
-En notacion Postfix, cada vez que aparece un numero se guarda como operando pendiente. Cuando aparece un operador, se consumen los dos operandos mas recientes.
+En notación Postfix, cada vez que aparece un numero se guarda como operando pendiente. Cuando aparece un operador, se consumen los dos operandos más recientes.
 
 Eso coincide exactamente con una pila:
 
@@ -55,10 +63,10 @@ la pila evoluciona asi:
 4. push `3`
 5. leer `*` -> pop `3` y `3`, calcular `3 * 3 = 9`, push `9`
 
-### Implementacion
+### Implementación
 
 ```cpp
-#include <stack>
+# include <stack>
 
 
 int evaluarPostfixConStack(const string& expr) {
@@ -83,7 +91,7 @@ int evaluarPostfixConStack(const string& expr) {
         else st.push(b / a);
     }
 
-    return st.top();    
+    return st.top();
 }
 
 int evaluarPostfixConStack(const string& expr) {
@@ -140,18 +148,18 @@ int evaluarPostfixConStack(const string& expr) {
 
 ### Complejidad
 
-- Tiempo: `O(n)`, donde `n` es el largo de la expresion o, equivalentemente, la cantidad total de caracteres leidos.
+- Tiempo: `O(n)`, donde `n` es el largo de la expresión o, equivalentemente, la cantidad total de caracteres leidos.
 - Espacio adicional: `O(k)`, donde `k` es la cantidad maxima de operandos simultaneos en la pila. En el peor caso, `O(n)`.
 
 ---
 
-## Ejercicio 2: Es anagrama usando una queue
+### Ejercicio 2: Es anagrama usando una queue
 
 ### Idea general
 
-Aqui el objetivo no es usar la solucion mas eficiente con conteo de frecuencias, sino modelar el estado con una estructura vista en el curso.
+Aqui el objetivo no es usar la solución más eficiente con conteo de frecuencias, sino modelar el estado con una estructura vista en el curso.
 
-La cola representara los **caracteres de `p1` que aun estan disponibles**.
+La cola representara los **caracteres de `p1` que aun están disponibles**.
 
 Para cada caracter de `p2`:
 
@@ -169,10 +177,10 @@ No importa tanto el orden original, sino el hecho de que la cola permite:
 - decidir si se consume;
 - o devolverlo al final si todavia sigue disponible.
 
-### Implementacion
+### Implementación
 
 ```cpp
-#include <queue>
+# include <queue>
 
 bool esAnagramaConQueue(const string& p1, const string& p2) {
     if (p1.size() != p2.size()) return false;
@@ -226,7 +234,7 @@ Para `p1 = "roma"` y `p2 = "amor"`:
 
 ---
 
-## Ejercicio 3: Es anagrama usando una stack
+### Ejercicio 3: Es anagrama usando una stack
 
 ### Idea general
 
@@ -247,10 +255,10 @@ Cuando aparece la coincidencia:
 - esa ocurrencia se consume;
 - luego se restaura la pila principal con los elementos de la auxiliar.
 
-### Implementacion
+### Implementación
 
 ```cpp
-#include <stack>
+# include <stack>
 
 bool esAnagramaConStack(const string& p1, const string& p2) {
     if (p1.size() != p2.size()) return false;
@@ -311,11 +319,11 @@ Esta version no es mejor que la de cola en complejidad. Su interes esta en mostr
 
 ---
 
-## Ejercicio 4: Reordenar una lista intercalando extremos
+### Ejercicio 4: Reordenar una lista intercalando extremos
 
 ### Idea general
 
-Este es el ejercicio mas estructural de la ayudantia. La solucion correcta y eficiente requiere varias etapas:
+Este es el ejercicio más estructural de la ayudantía. La solución correcta y eficiente requiere varias etapas:
 
 1. encontrar el medio de la lista;
 2. cortar la lista en dos mitades;
@@ -324,7 +332,7 @@ Este es el ejercicio mas estructural de la ayudantia. La solucion correcta y efi
 
 La clave es hacerlo sin crear nodos nuevos y usando solo `O(1)` espacio adicional.
 
-### Por que esta solucion cumple la restriccion
+### Por qué esta solución cumple la restriccion
 
 No usamos arreglos ni pilas auxiliares. Solo:
 
@@ -354,7 +362,7 @@ Supongamos:
 1 -> 5 -> 2 -> 4 -> 3
 ```
 
-### Implementacion
+### Implementación
 
 ```cpp
 Node* reverseList(Node* head) {
@@ -420,7 +428,7 @@ void reorderListAlternandoExtremos(Node*& head) {
 
 ---
 
-## Ejercicio 5: Colapsar bloques estrictamente crecientes
+### Ejercicio 5: Colapsar bloques estrictamente crecientes
 
 ### Idea general
 
@@ -473,7 +481,7 @@ Resultado:
 9 -> 10 -> 26 -> 1
 ```
 
-### Implementacion
+### Implementación
 
 ```cpp
 void colapsarBloquesCrecientes(Node*& head) {
@@ -518,9 +526,9 @@ void colapsarBloquesCrecientes(Node*& head) {
 }
 ```
 
-### Por que funciona
+### Por qué funciona
 
-Esta solucion funciona porque cada nodo pertenece a un unico bloque.
+Esta solución funciona porque cada nodo pertenece a un unico bloque.
 
 Para cada bloque:
 
@@ -551,7 +559,7 @@ Asi, al terminar, la lista queda formada exactamente por un nodo por bloque.
 ## Guía algorítmica
 
 1. una pila puede guardar operandos o caracteres pendientes segun el problema.
-2. una cola o una pila pueden modelar estado pendiente, aunque eso no siempre sea la opcion mas eficiente.
+2. una cola o una pila pueden modelar estado pendiente, aunque eso no siempre sea la opcion más eficiente.
 3. una lista enlazada bien manipulada exige pensar en etapas, casos borde, relinkeo correcto y eliminacion segura de nodos.
 4. detectar un patron dentro de una lista y transformarlo in-place es una habilidad distinta a solo recorrerla.
-5. la justificacion de complejidad es parte de la solucion, no un agregado opcional.
+5. la justificacion de complejidad es parte de la solución, no un agregado opcional.

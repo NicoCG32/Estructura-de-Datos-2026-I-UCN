@@ -1,4 +1,29 @@
-# Ayudantía 7: Heaps y HeapSort
+# Ayudantía 7
+## Contenido
+
+- [Objetivo del bloque](#objetivo-del-bloque)
+- [Repaso teórico breve](#repaso-teorico-breve)
+- [Cómo leer un heap como arreglo](#como-leer-un-heap-como-arreglo)
+- [Fórmulas de índices](#formulas-de-indices)
+  - [Caso `0-based`](#caso-0-based)
+  - [Caso `1-based`](#caso-1-based)
+  - [Observación práctica](#observacion-practica)
+- [Algoritmo HeapSort](#algoritmo-heapsort)
+  - [Complejidad](#complejidad)
+- [Implementación de referencia en Python](#implementacion-de-referencia-en-python)
+  - [Ejercicio 1: leer un heap con indexación 0-based](#ejercicio-1-leer-un-heap-con-indexacion-0-based)
+  - [Tareas](#tareas)
+  - [Consideraciones](#consideraciones)
+  - [Ejercicio 2: leer un heap con indexación 1-based](#ejercicio-2-leer-un-heap-con-indexacion-1-based)
+  - [Tareas](#tareas)
+  - [Consideraciones](#consideraciones)
+  - [Ejercicio 3: HeapSort paso a paso con indexación 0-based](#ejercicio-3-heapsort-paso-a-paso-con-indexacion-0-based)
+  - [Consideraciones](#consideraciones)
+  - [Ejercicio 4: HeapSort paso a paso con indexación 1-based](#ejercicio-4-heapsort-paso-a-paso-con-indexacion-1-based)
+  - [Consideraciones](#consideraciones)
+  - [Ejercicio 5: HeapSort paso a paso con un arreglo un poco más grande](#ejercicio-5-heapsort-paso-a-paso-con-un-arreglo-un-poco-más-grande)
+  - [Consideraciones](#consideraciones)
+
 
 Esta ayudantía se centra en entender el heap como arreglo y en simular `HeapSort` paso a paso. La idea es separar este bloque de los recorridos de árboles binarios de la `Ayudantía 6`, porque aunque ambos usan árboles, resuelven problemas distintos.
 
@@ -87,7 +112,7 @@ La siguiente versión es solo una referencia para entender el flujo del algoritm
 ```python
 def heapify(arr, n, i):
     # Inicializa el nodo actual como el más grande
-    largest = i  
+    largest = i
     left = 2 * i + 1     # Hijo izquierdo
     right = 2 * i + 2    # Hijo derecho
 
@@ -117,7 +142,7 @@ def heap_sort(arr):
         heapify(arr, i, 0)               # Llama a heapify en el montículo reducido
 ```
 
-## Ejercicio 1: leer un heap con indexación 0-based
+### Ejercicio 1: leer un heap con indexación 0-based
 
 Considera el siguiente arreglo:
 
@@ -138,7 +163,7 @@ a = [19, 11, 17, 8, 10, 13, 15]
 - dibuja el árbol antes de responder si cumple o no la propiedad de heap;
 - revisa cada nodo interno, no solo la raíz.
 
-## Ejercicio 2: leer un heap con indexación 1-based
+### Ejercicio 2: leer un heap con indexación 1-based
 
 Considera el siguiente arreglo donde la posición `0` se deja vacía:
 
@@ -158,7 +183,7 @@ b = [0, 20, 14, 18, 9, 12, 16, 17]
 - verifica que las fórmulas cambien respecto del caso anterior;
 - compara cada padre con sus hijos para validar la propiedad de heap.
 
-## Ejercicio 3: HeapSort paso a paso con indexación 0-based
+### Ejercicio 3: HeapSort paso a paso con indexación 0-based
 
 Ordena en forma ascendente el siguiente arreglo usando `HeapSort`:
 
@@ -172,7 +197,7 @@ a = [4, 10, 3, 5, 1]
 - después de cada intercambio, el último elemento ya queda fijo;
 - en cada paso solo se reordena la parte activa del arreglo.
 
-## Ejercicio 4: HeapSort paso a paso con indexación 1-based
+### Ejercicio 4: HeapSort paso a paso con indexación 1-based
 
 Ordena en forma ascendente el siguiente arreglo:
 
@@ -192,7 +217,7 @@ Resultado final en orden ascendente:
 [1, 3, 4, 6, 7, 8]
 ```
 
-## Ejercicio 5: HeapSort paso a paso con un arreglo un poco más grande
+### Ejercicio 5: HeapSort paso a paso con un arreglo un poco más grande
 
 Ordena el siguiente arreglo en forma ascendente:
 

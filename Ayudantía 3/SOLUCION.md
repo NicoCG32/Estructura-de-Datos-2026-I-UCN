@@ -1,6 +1,15 @@
-# Ayudantia 3 - Soluciones
+# Ayudantía 3: Soluciones
+## Índice
 
-Estas soluciones estan ajustadas a los ejercicios actuales del README.
+- [Ejercicio 1: Insertar por índice](#ejercicio-1-insertar-por-índice)
+- [Ejercicio 2: Eliminar por índice](#ejercicio-2-eliminar-por-índice)
+- [Ejercicio 3: Add Two Numbers](#ejercicio-3-add-two-numbers)
+- [Ejercicio 4: Factorial simulando recursión con stack de nodos](#ejercicio-4-factorial-simulando-recursión-con-stack-de-nodos)
+
+
+Ayudantía 3 - Soluciones
+
+Estas soluciones están ajustadas a los ejercicios actuales del README.
 
 En todas se asume: `using namespace std;`.
 
@@ -16,7 +25,7 @@ struct Node {
 
 ---
 
-## Ejercicio 1: Insertar por indice
+### Ejercicio 1: Insertar por índice
 
 ```cpp
 void insertAtIndex(Node*& head, int index, int value) {
@@ -55,7 +64,7 @@ void insertAtIndex(Node*& head, int index, int value) {
     } // Este caso nos faltó ver, pero tenía que ver con los casos de las listas
     // Caso 1: Lista vacía
     // Caso 2: Lista con un elemento
-    // Caso 3: Lista con n elementos 
+    // Caso 3: Lista con n elementos
 
     if (index == 0) { // Caso índice = 0
         Node* newNode = new Node(value);
@@ -70,7 +79,7 @@ void insertAtIndex(Node*& head, int index, int value) {
     for (int i = 0; i < index - 1; ++i) {
 
         if (cursorRight == nullptr) break;
-        
+
         cursorLeft = cursorLeft->next;
         cursorRight = cursorRight->next;
     }
@@ -89,7 +98,7 @@ void insertAtIndex(Node*& head, int index, int value) {
 
 ---
 
-## Ejercicio 2: Eliminar por indice
+### Ejercicio 2: Eliminar por índice
 
 ```cpp
 void eraseAtIndex(Node*& head, int index) {
@@ -117,7 +126,7 @@ void eraseAtIndex(Node*& head, int index) {
 
 ---
 
-## Ejercicio 3: Add Two Numbers
+### Ejercicio 3: Add Two Numbers
 
 ```cpp
 Node* addTwoNumbers(Node* l1, Node* l2) {
@@ -127,7 +136,7 @@ Node* addTwoNumbers(Node* l1, Node* l2) {
 
 ---
 
-## Ejercicio 4: Factorial simulando recursion con stack de nodos
+### Ejercicio 4: Factorial simulando recursión con stack de nodos
 
 ### Sin STL (Directo con nodos)
 
@@ -158,7 +167,7 @@ long long factorialConStack(int n) {
 ### Con STL
 
 ```cpp
-#include <stack>
+# include <stack>
 
 long long factorialConStackSTL(int n) {
     if (n < 0) return -1;

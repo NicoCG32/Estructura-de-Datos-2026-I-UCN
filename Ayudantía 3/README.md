@@ -1,4 +1,18 @@
-# Ayudantía 3: Programación a gran escala y Listas Enlazadas
+# Ayudantía 3
+## Contenido
+
+- [Organización de archivos](#organizacion-de-archivos)
+  - [Diferencia entre `.h` y `.cpp`](#diferencia-entre-h-y-cpp)
+  - [Documentación](#documentacion)
+  - [Scripts](#scripts)
+- [Introducción a Algoritmos](#introduccion-a-algoritmos)
+- [Ejercicios con nodos (sin STL, sin interfaces)](#ejercicios-con-nodos-sin-stl-sin-interfaces)
+  - [Estructuras base sugeridas](#estructuras-base-sugeridas)
+  - [Ejercicio 1: Insertar por índice](#ejercicio-1-insertar-por-índice)
+  - [Ejercicio 2: Eliminar por índice](#ejercicio-2-eliminar-por-índice)
+  - [Ejercicio 3: Add Two Numbers](#ejercicio-3-add-two-numbers)
+  - [Ejercicio 4: Factorial simulando recursión con stack de nodos](#ejercicio-4-factorial-simulando-recursion-con-stack-de-nodos)
+
 
 ## Organización de archivos
 
@@ -35,7 +49,7 @@ Ejemplo corto:
 
 ```cpp
 // Lista.h
-#pragma once
+# pragma once
 
 class Lista {
 public:
@@ -45,7 +59,7 @@ public:
 
 ```cpp
 // Lista.cpp
-#include "Lista.h"
+# include "Lista.h"
 
 void Lista::insertar(int valor) {
     // implementación real
@@ -93,14 +107,14 @@ Cuando hablamos de interfaz, nos referimos al conjunto de operaciones públicas 
 
 En `vector`, la interfaz está orientada a acceso por índice y crecimiento al final. Por eso son comunes operaciones como `push_back`, `pop_back`, `operator[]`, `at`, `size`, `capacity`, `reserve` y `data`.
 
--> En java es simil al interfaz de 
+-> En java es simil al interfaz de
 ```java
 ArrayList<T>
 ```
 
 En `list`, la interfaz está orientada a manipular nodos dentro de la secuencia sin mover todos los elementos. Por eso aparecen operaciones como `push_front`, `push_back`, `pop_front`, `pop_back`, `insert`, `erase`, `splice`, `sort` y `reverse`.
 
--> En java es simil al interfaz de 
+-> En java es simil al interfaz de
 ```java
 LinkedList<T>
 ```

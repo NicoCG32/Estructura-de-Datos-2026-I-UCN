@@ -1,4 +1,27 @@
-# Ayudantía 2: POO en C++, Herencia y Polimorfismo
+# Ayudantía 2
+## Contenido
+
+- [Repaso de la Ayudantía 1: `*`, `&`, punteros y referencias](#repaso-de-la-ayudantia-1-punteros-y-referencias)
+  - [Operador `*`](#operador-)
+  - [Operador `&`](#operador-)
+  - [Variables de tipo puntero (`Tipo*`)](#variables-de-tipo-puntero-tipo)
+  - [Lo que faltó ver: variable de tipo referencia (`Tipo&`)](#lo-que-falto-ver-variable-de-tipo-referencia-tipo)
+- [Repaso POO](#repaso-poo)
+  - [Tabla Resumen Rápido (Herencia y Polimorfismo en C++)](#tabla-resumen-rapido-herencia-y-polimorfismo-en-c)
+  - [Casos extra importantes a considerar](#casos-extra-importantes-a-considerar)
+  - [Funciones y tipos de datos no primitivos](#funciones-y-tipos-de-datos-no-primitivos)
+  - [Inciso final: qué es `struct` y cuándo conviene](#inciso-final-que-es-struct-y-cuando-conviene)
+- [Ejercicios de herencia](#ejercicios-de-herencia)
+  - [Ejercicio 1](#ejercicio-1)
+  - [Ejercicio 2](#ejercicio-2)
+  - [Ejercicio 3](#ejercicio-3)
+- [Ejercicios de polimorfismo](#ejercicios-de-polimorfismo)
+  - [Ejercicio 4](#ejercicio-4)
+  - [Ejercicio 5](#ejercicio-5)
+  - [Ejercicio 6](#ejercicio-6)
+  - [Ejercicio 7](#ejercicio-7)
+  - [Referencias](#referencias)
+
 
 ## Repaso de la Ayudantía 1: `*`, `&`, punteros y referencias
 
@@ -105,7 +128,7 @@ Comparación directa con Java en esta tabla:
 #### Ejemplo mínimo
 
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 class Padre {
@@ -195,7 +218,7 @@ Mini-regla de estos casos:
 #### Mini-caso: doble herencia (`Hijo : Padre, Madre`)
 
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 class Padre {
@@ -319,8 +342,8 @@ Traducción rápida C++ vs Java:
 #### Ejemplo: estáticos y dinámicos enviados a funciones
 
 ```cpp
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 using namespace std;
 
 class Alumno {
@@ -402,8 +425,8 @@ Por eso, para ejercicios rápidos o modelos simples de datos, `struct` ahorra ti
 Ejemplo simple:
 
 ```cpp
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 using namespace std;
 
 struct AlumnoDTO {
@@ -443,8 +466,8 @@ Comparación con Java:
 ### Ejercicio 1
 
 ```cpp
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 using namespace std;
 
 class Persona {
@@ -537,8 +560,8 @@ int main() {
 ### Ejercicio 2
 
 ```cpp
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 using namespace std;
 
 class Persona {
@@ -646,8 +669,8 @@ int main() {
 ### Ejercicio 3
 
 ```cpp
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 using namespace std;
 
 class Persona {
@@ -736,8 +759,8 @@ Comparación con Java:
 - El método no virtual aquí se parece más a un método `static/final/private` en Java respecto al enlace.
 
 ```cpp
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 using namespace std;
 
 class Animal {
@@ -835,8 +858,8 @@ int main() {
 ### Ejercicio 5
 
 ```cpp
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 using namespace std;
 
 class Animal {
@@ -943,7 +966,7 @@ int main() {
 ### Ejercicio 6
 
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 class Base {
@@ -976,8 +999,8 @@ int main() {
 ### Ejercicio 7
 
 ```cpp
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 using namespace std;
 
 class A {

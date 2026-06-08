@@ -1,6 +1,16 @@
-# Ayudantía 5: Repaso final antes de la PP1
+# Ayudantía 5
+## Contenido
 
-Esta es la ultima ayudantia antes de la prueba. El foco ya no es introducir estructuras nuevas, sino reforzar problemas que obligan a modelar estado, manipular punteros con cuidado y justificar complejidad.
+- [Instrucciones de trabajo](#instrucciones-de-trabajo)
+- [Restricciones generales](#restricciones-generales)
+- [Estructura base para listas enlazadas](#estructura-base-para-listas-enlazadas)
+  - [Ejercicio 1: Evaluar expresión Postfix con stack](#ejercicio-1-evaluar-expresión-postfix-con-stack)
+  - [Ejercicio 2: Es anagrama usando una queue](#ejercicio-2-es-anagrama-usando-una-queue)
+  - [Ejercicio 3: Reordenar una lista intercalando extremos](#ejercicio-3-reordenar-una-lista-intercalando-extremos)
+  - [Ejercicio 4: Colapsar bloques estrictamente crecientes](#ejercicio-4-colapsar-bloques-estrictamente-crecientes)
+
+
+Esta es la ultima ayudantía antes de la prueba. El foco ya no es introducir estructuras nuevas, sino reforzar problemas que obligan a modelar estado, manipular punteros con cuidado y justificar complejidad.
 
 ## Instrucciones de trabajo
 
@@ -8,7 +18,7 @@ Esta es la ultima ayudantia antes de la prueba. El foco ya no es introducir estr
 2. Cuando uses punteros, dibuja la estructura antes y despues de cada paso importante.
 3. Al terminar, responde siempre:
    - que hace el algoritmo;
-   - que estructura usa y por que;
+   - que estructura usa y por qué;
    - cual es su complejidad temporal;
    - cual es su complejidad espacial.
 
@@ -17,7 +27,7 @@ Esta es la ultima ayudantia antes de la prueba. El foco ya no es introducir estr
 - Trabaja con nodos y punteros en los ejercicios de lista enlazada.
 - No uses contenedores STL como `vector`, `list`, `map` o similares, a menos que el enunciado lo permita.
 - En los ejercicios de pila y cola se permite usar `std::stack` y `std::queue`.
-- No uses recursion, salvo que el enunciado lo permita expresamente.
+- No uses recursión, salvo que el enunciado lo permita expresamente.
 - Si creas memoria dinamica auxiliar, debes dejar claro cuando se libera.
 - Si el ejercicio pide una complejidad especifica, esa restriccion forma parte del problema.
 
@@ -38,11 +48,11 @@ Para estados auxiliares puedes usar `std::stack` y `std::queue` cuando el enunci
 
 ---
 
-## Ejercicio 1: Evaluar expresion Postfix con stack
+### Ejercicio 1: Evaluar expresión Postfix con stack
 
 Problema:
 
-Implementa una calculadora que evalua una expresion en notacion Postfix usando una pila.
+Implementa una calculadora que evalua una expresión en notación Postfix usando una pila.
 
 Firma sugerida:
 
@@ -52,11 +62,11 @@ int evaluarPostfixConStack(const string& expr);
 
 Restricciones y consideraciones:
 
-- La expresion llega separada por espacios.
+- La expresión llega separada por espacios.
 - Los operandos son enteros y los operadores posibles son `+`, `-`, `*`, `/`.
 - La division es entera.
 - Puedes usar `stack<>`.
-- Puedes asumir que la expresion es valida.
+- Puedes asumir que la expresión es valida.
 
 Ejemplos de entrada y salida:
 
@@ -69,11 +79,11 @@ Ejemplos de entrada y salida:
 
 ---
 
-## Ejercicio 2: Es anagrama usando una queue
+### Ejercicio 2: Es anagrama usando una queue
 
 Problema:
 
-Implementa una funcion que determine si dos cadenas son anagramas, pero obligatoriamente usando una cola.
+Implementa una función que determine si dos cadenas son anagramas, pero obligatoriamente usando una cola.
 
 Firma sugerida:
 
@@ -84,9 +94,9 @@ bool esAnagrama(const string& p1, const string& p2);
 Restricciones y consideraciones:
 
 - No uses arreglos de frecuencia, `map` ni tablas hash.
-- Debes usar la cola para representar los caracteres de `p1` que aun estan disponibles.
+- Debes usar la cola para representar los caracteres de `p1` que aun están disponibles.
 - Puedes usar `queue<>`.
-- La solucion debe ser iterativa.
+- La solución debe ser iterativa.
 
 Ejemplos de entrada y salida:
 
@@ -100,7 +110,7 @@ Ejemplos de entrada y salida:
 
 ---
 
-## Ejercicio 3: Reordenar una lista intercalando extremos
+### Ejercicio 3: Reordenar una lista intercalando extremos
 
 Problema:
 
@@ -126,8 +136,8 @@ Restricciones y consideraciones:
 
 - Debe ejecutarse en O(n) tiempo.
 - Debe usar O(1) espacio adicional.
-- No puedes crear nuevos nodos para la solucion final.
-- No puedes usar arreglos, vectores, pilas, colas ni recursion.
+- No puedes crear nuevos nodos para la solución final.
+- No puedes usar arreglos, vectores, pilas, colas ni recursión.
 
 Ejemplos de entrada y salida:
 
@@ -140,7 +150,7 @@ Ejemplos de entrada y salida:
 
 ---
 
-## Ejercicio 4: Colapsar bloques estrictamente crecientes
+### Ejercicio 4: Colapsar bloques estrictamente crecientes
 
 Problema:
 
@@ -158,7 +168,7 @@ Restricciones y consideraciones:
 
 - Debe ejecutarse en O(n) tiempo.
 - Debe usar O(1) espacio adicional.
-- No puedes usar arreglos, vectores, pilas, colas ni recursion.
+- No puedes usar arreglos, vectores, pilas, colas ni recursión.
 - Los nodos sobrantes del bloque deben eliminarse correctamente.
 
 Ejemplos de entrada y salida:

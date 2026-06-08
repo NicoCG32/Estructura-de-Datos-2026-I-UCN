@@ -1,6 +1,6 @@
-# Ayudantia 6: Soluciones
+# Ayudantía 6: Soluciones
 
-Estas soluciones se concentran solo en recorridos de arboles binarios.
+Estas soluciones se concentran solo en recorridos de árboles binarios.
 
 Se asume:
 
@@ -34,15 +34,15 @@ void visitar(TreeNode* node) {
 
 ### Idea general
 
-En los recorridos DFS recursivos, la pila de llamadas del lenguaje ya modela el camino actual en el arbol.
+En los recorridos DFS recursivos, la pila de llamadas del lenguaje ya modela el camino actual en el árbol.
 
-La diferencia entre variantes esta solo en **cuando** se visita la raiz:
+La diferencia entre variantes está solo en **cuándo** se visita la raíz:
 
-- inorden: izquierda, raiz, derecha;
-- preorden: raiz, izquierda, derecha;
-- postorden: izquierda, derecha, raiz.
+- inorden: izquierda, raíz, derecha;
+- preorden: raíz, izquierda, derecha;
+- postorden: izquierda, derecha, raíz.
 
-### Implementacion
+### Implementación
 
 ```cpp
 void inordenRec(TreeNode* root) {
@@ -70,7 +70,7 @@ void postordenRec(TreeNode* root) {
 ### Complejidad
 
 - Tiempo: `O(n)` en todos los casos.
-- Espacio adicional: `O(h)` por la profundidad de recursion, donde `h` es la altura del arbol.
+- Espacio adicional: `O(h)` por la profundidad de recursión, donde `h` es la altura del árbol.
 
 ---
 
@@ -78,16 +78,16 @@ void postordenRec(TreeNode* root) {
 
 ### Idea general
 
-Aqui reemplazamos la recursion por una `stack<TreeNode*>`.
+Aqui reemplazamos la recursión por una `stack<TreeNode*>`.
 
-- en inorden se baja por un lado del arbol, apilando el camino;
-- en preorden se procesa la raiz antes de apilar hijos;
+- en inorden se baja por un lado del árbol, apilando el camino;
+- en preorden se procesa la raíz antes de apilar hijos;
 - en postorden conviene usar dos pilas por claridad;
 
-### Implementacion
+### Implementación
 
 ```cpp
-#include <stack>
+# include <stack>
 
 void inordenIter(TreeNode* root) {
     stack<TreeNode*> st;
@@ -158,9 +158,9 @@ void postordenIter(TreeNode* root) {
 
 En BFS se recorre por niveles.
 
-La version iterativa natural usa `queue<TreeNode*>`.
+La versión iterativa natural usa `queue<TreeNode*>`.
 
-La version recursiva no usa cola: primero calcula la altura y luego imprime nodo por nodo cada nivel, desde el nivel `1` hasta el nivel `h`.
+La versión recursiva no usa cola: primero calcula la altura y luego imprime nodo por nodo cada nivel, desde el nivel `1` hasta el nivel `h`.
 
 ### Helpers para la version recursiva
 
@@ -187,10 +187,10 @@ void imprimirNivel(TreeNode* root, int nivel) {
 }
 ```
 
-### Implementacion
+### Implementación
 
 ```cpp
-#include <queue>
+# include <queue>
 
 void bfsRec(TreeNode* root) {
     int h = altura(root);
@@ -219,11 +219,11 @@ void bfsIter(TreeNode* root) {
 ### Complejidad
 
 - BFS recursivo:
-  - Tiempo: `O(n * h)` en esta implementacion por niveles.
-  - Espacio adicional: `O(h)` por recursion.
+  - Tiempo: `O(n * h)` en esta implementación por niveles.
+  - Espacio adicional: `O(h)` por recursión.
 - BFS iterativo:
   - Tiempo: `O(n)`.
-  - Espacio adicional: `O(w)`, donde `w` es el maximo ancho del arbol.
+- Espacio adicional: `O(w)`, donde `w` es el máximo ancho del árbol.
 
 ---
 
@@ -233,7 +233,7 @@ void bfsIter(TreeNode* root) {
 
 En este material, BFS inverso significa:
 
-- imprimir primero el nivel mas profundo;
+- imprimir primero el nivel más profundo;
 - mantener izquierda a derecha dentro de cada nivel.
 
 ### Version recursiva
@@ -253,7 +253,7 @@ void bfsInversoRec(TreeNode* root) {
 
 Para mantener izquierda a derecha al imprimir desde abajo hacia arriba:
 
-1. recorremos el arbol con cola;
+1. recorremos el árbol con cola;
 2. apilamos cada nodo visitado;
 3. encolamos primero `right` y luego `left`;
 4. al desapilar, aparece el orden final correcto.

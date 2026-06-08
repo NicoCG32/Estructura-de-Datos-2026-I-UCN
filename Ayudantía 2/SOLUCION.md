@@ -1,6 +1,18 @@
-# Soluciones: POO en C++, Herencia y Polimorfismo
+# Ayudantía 2: Soluciones
+## Índice
 
-## Ejercicio 1: Herencia en Cadena (Persona -> Estudiante -> Ayudante)
+- [Ejercicio 1: Herencia en Cadena (Persona -> Estudiante -> Ayudante)](#ejercicio-1-herencia-en-cadena-persona--estudiante--ayudante)
+- [Ejercicio 2: Herencia Múltiple (Diamante sin herencia virtual)](#ejercicio-2-herencia-múltiple-diamante-sin-herencia-virtual)
+- [Ejercicio 3: Constructores/Destructores en Stack, Heap y Bloques](#ejercicio-3-constructoresdestructores-en-stack-heap-y-bloques)
+- [Ejercicio 4: Polimorfismo Parcial (virtual y no virtual)](#ejercicio-4-polimorfismo-parcial-virtual-y-no-virtual)
+- [Ejercicio 5: Punteros a Objetos y Liberación de Memoria](#ejercicio-5-punteros-a-objetos-y-liberación-de-memoria)
+- [Ejercicio 6: Ágil](#ejercicio-6-ágil)
+- [Ejercicio 7: Despacho Estático vs Dinámico + Destructor Virtual](#ejercicio-7-despacho-estático-vs-dinámico--destructor-virtual)
+
+
+Soluciones: POO en C++, Herencia y Polimorfismo
+
+### Ejercicio 1: Herencia en Cadena (Persona -> Estudiante -> Ayudante)
 
 ### Ruteo de Construcción
 
@@ -51,7 +63,7 @@ Destruyendo Persona
 
 ---
 
-## Ejercicio 2: Herencia Múltiple (Diamante sin herencia virtual)
+### Ejercicio 2: Herencia Múltiple (Diamante sin herencia virtual)
 
 ### Idea Clave
 
@@ -118,7 +130,7 @@ Destruyendo Persona: Nicolas
 
 ---
 
-## Ejercicio 3: Constructores/Destructores en Stack, Heap y Bloques
+### Ejercicio 3: Constructores/Destructores en Stack, Heap y Bloques
 
 ### Ruteo Paso a Paso
 
@@ -135,19 +147,19 @@ Destruyendo Persona: Nicolas
 
 Un bloque interno es un alcance delimitado por llaves dentro de otro bloque (por ejemplo, dentro de `main`).
 
-Aunque se parece a una funcion porque usa llaves, no es una funcion: no tiene nombre, no recibe parametros y no se puede invocar desde otro lugar. Solo se ejecuta cuando el flujo del programa llega a ese punto.
+Aunque se parece a una función porque usa llaves, no es una función: no tiene nombre, no recibe parametros y no se puede invocar desde otro lugar. Solo se ejecuta cuando el flujo del programa llega a ese punto.
 
-En este ejercicio, al entrar al bloque se construye `e2` (`Sofia`). Mientras la ejecucion esta dentro de ese bloque, `e2` existe y puede usarse normalmente. Al llegar a la llave de cierre, `e2` sale de alcance y su destructor se ejecuta de inmediato, por eso se imprime:
+En este ejercicio, al entrar al bloque se construye `e2` (`Sofia`). Mientras la ejecución esta dentro de ese bloque, `e2` existe y puede usarse normalmente. Al llegar a la llave de cierre, `e2` sale de alcance y su destructor se ejecuta de inmediato, por eso se imprime:
 
 1. `Destruyendo Estudiante: Sofia`
 2. `Destruyendo Persona: Sofia`
 
-Esto ocurre antes de `delete p2` y antes de terminar `main`, porque los objetos locales de un bloque se destruyen al salir de ese bloque, no al final de toda la funcion.
+Esto ocurre antes de `delete p2` y antes de terminar `main`, porque los objetos locales de un bloque se destruyen al salir de ese bloque, no al final de toda la función.
 
 ### Usos comunes de bloques internos
 
 1. Limitar el alcance de variables temporales.
-2. Ordenar el codigo por etapas para hacerlo mas legible.
+2. Ordenar el codigo por etapas para hacerlo más legible.
 3. Evitar conflictos de nombres entre variables locales.
 
 ### Salida
@@ -183,7 +195,7 @@ Destruyendo Persona: Carlos
 
 ---
 
-## Ejercicio 4: Polimorfismo Parcial (virtual y no virtual)
+### Ejercicio 4: Polimorfismo Parcial (virtual y no virtual)
 
 ### Idea Clave
 
@@ -229,7 +241,7 @@ Destruyendo Animal: Max
 
 ---
 
-## Ejercicio 5: Punteros a Objetos y Liberación de Memoria
+### Ejercicio 5: Punteros a Objetos y Liberación de Memoria
 
 ### Ruteo de Construcción
 
@@ -284,7 +296,7 @@ Fin
 
 ---
 
-## Ejercicio 6: Ágil
+### Ejercicio 6: Ágil
 
 ### Idea Clave
 
@@ -306,7 +318,7 @@ f de Derivada
 
 ---
 
-## Ejercicio 7: Despacho Estático vs Dinámico + Destructor Virtual
+### Ejercicio 7: Despacho Estático vs Dinámico + Destructor Virtual
 
 ### Idea Clave
 

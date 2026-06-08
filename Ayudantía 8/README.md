@@ -1,18 +1,40 @@
-# Ayudantia 8: Arboles AVL
+# Ayudantía 8
+## Contenido
 
-Esta ayudantia introduce los arboles AVL, que son arboles binarios de busqueda auto-balanceados. La idea central es mantener la altura controlada para que insertar, buscar y recorrer siga siendo eficiente.
+- [Objetivo del bloque](#objetivo-del-bloque)
+- [Repaso teorico breve](#repaso-teorico-breve)
+- [Metodo general de insercion](#metodo-general-de-insercion)
+- [Eliminacion en AVL](#eliminacion-en-avl)
+- [Casos de rotacion](#casos-de-rotacion)
+  - [1. LL](#1-ll)
+  - [2. RR](#2-rr)
+  - [3. LR](#3-lr)
+  - [4. RL](#4-rl)
+- [Ejemplos cortos](#ejemplos-cortos)
+  - [Ejemplo 1](#ejemplo-1)
+  - [Ejemplo 2](#ejemplo-2)
+  - [Ejemplo 3](#ejemplo-3)
+  - [Ejemplo 4](#ejemplo-4)
+- [Ejercicios propuestos](#ejercicios-propuestos)
+  - [Ejercicio 1](#ejercicio-1)
+  - [Ejercicio 2](#ejercicio-2)
+  - [Ejercicio 3](#ejercicio-3)
+  - [Ejercicio 4](#ejercicio-4)
+
+
+Esta ayudantía introduce los árboles AVL, que son árboles binarios de busqueda auto-balanceados. La idea central es mantener la altura controlada para que insertar, buscar y recorrer siga siendo eficiente.
 
 ## Objetivo del bloque
 
-- entender que es un AVL y por que balancea mejor que un BST comun;
+- entender que es un AVL y por qué balancea mejor que un BST comun;
 - identificar el factor de balance de cada nodo;
 - reconocer los cuatro casos de reacomodo: LL, RR, LR y RL;
 - practicar inserciones paso a paso con vectores;
-- leer el arbol resultante despues de cada insercion.
+- leer el árbol resultante despues de cada insercion.
 
 ## Repaso teorico breve
 
-Un AVL es un arbol binario de busqueda donde, para cada nodo, la diferencia entre la altura del subarbol izquierdo y el derecho nunca supera 1 en valor absoluto.
+Un AVL es un árbol binario de busqueda donde, para cada nodo, la diferencia entre la altura del subarbol izquierdo y el derecho nunca supera 1 en valor absoluto.
 
 Se usa normalmente esta definicion del factor de balance:
 
@@ -22,7 +44,7 @@ balance(node) = height(left) - height(right)
 
 Un nodo esta equilibrado si su balance es `-1`, `0` o `1`.
 
-Cuando una insercion rompe esa regla, el arbol se corrige con rotaciones locales. La insercion sigue siendo la de un BST normal, pero al volver desde la recursion se actualizan alturas y se repara el primer nodo desbalanceado.
+Cuando una insercion rompe esa regla, el árbol se corrige con rotaciones locales. La insercion sigue siendo la de un BST normal, pero al volver desde la recursión se actualizan alturas y se repara el primer nodo desbalanceado.
 
 ## Metodo general de insercion
 
@@ -40,11 +62,11 @@ El proceso general es este:
 1. Buscar el valor a eliminar.
 2. Si el nodo tiene dos hijos, reemplazarlo por su sucesor inorden o su predecesor inorden.
 3. Eliminar el nodo que quedo realmente desconectado.
-4. Actualizar alturas mientras se vuelve hacia la raiz.
+4. Actualizar alturas mientras se vuelve hacia la raíz.
 5. Calcular el factor de balance de cada nodo.
 6. Si aparece un desbalance, aplicar la rotacion que corresponda.
 
-En eliminacion pueden aparecer los mismos cuatro casos de reacomodo, pero el criterio se determina por el balance del nodo afectado y de su hijo. La diferencia clave con la insercion es que, despues de borrar, el desbalance puede propagarse mas arriba, por lo que a veces hay que corregir mas de un nodo en el camino.
+En eliminacion pueden aparecer los mismos cuatro casos de reacomodo, pero el criterio se determina por el balance del nodo afectado y de su hijo. La diferencia clave con la insercion es que, despues de borrar, el desbalance puede propagarse más arriba, por lo que a veces hay que corregir más de un nodo en el camino.
 
 Idea practica:
 
@@ -116,25 +138,25 @@ Rotaciones usadas: primero derecha en el hijo, luego izquierda en el nodo.
 
 Inserta `30, 20, 10` en ese orden.
 
-Resultado esperado: aparece un caso `LL` y el arbol queda con `20` como raiz.
+Resultado esperado: aparece un caso `LL` y el árbol queda con `20` como raíz.
 
 ### Ejemplo 2
 
 Inserta `10, 20, 30`.
 
-Resultado esperado: aparece un caso `RR` y el arbol queda con `20` como raiz.
+Resultado esperado: aparece un caso `RR` y el árbol queda con `20` como raíz.
 
 ### Ejemplo 3
 
 Inserta `30, 10, 20`.
 
-Resultado esperado: aparece un caso `LR` y el arbol queda con `20` como raiz.
+Resultado esperado: aparece un caso `LR` y el árbol queda con `20` como raíz.
 
 ### Ejemplo 4
 
 Inserta `10, 30, 20`.
 
-Resultado esperado: aparece un caso `RL` y el arbol queda con `20` como raiz.
+Resultado esperado: aparece un caso `RL` y el árbol queda con `20` como raíz.
 
 ## Ejercicios propuestos
 
@@ -146,10 +168,10 @@ Inserta uno por uno los valores de la secuencia:
 
 Tareas:
 
-1. Dibujar el arbol despues de cada insercion.
+1. Dibujar el árbol despues de cada insercion.
 2. Indicar en que paso aparece una rotacion.
 3. Identificar si la rotacion fue `LL`, `RR`, `LR` o `RL`.
-4. Mostrar el arbol final balanceado.
+4. Mostrar el árbol final balanceado.
 
 ### Ejercicio 2
 
@@ -161,7 +183,7 @@ Tareas:
 
 1. Registrar todas las alturas intermedias.
 2. Indicar cada reacomodo realizado.
-3. Explicar por que el ultimo valor produce un cambio en la parte alta del arbol.
+3. Explicar por qué el ultimo valor produce un cambio en la parte alta del árbol.
 
 ### Ejercicio 3
 
@@ -172,7 +194,7 @@ Inserta uno por uno los valores de la secuencia:
 Tareas:
 
 1. Comprobar si ocurre alguna rotacion.
-2. Justificar por que el arbol se mantiene equilibrado o donde deja de hacerlo.
+2. Justificar por qué el árbol se mantiene equilibrado o donde deja de hacerlo.
 3. Comparar la altura final con la de un BST comun.
 
 ### Ejercicio 4
@@ -183,7 +205,7 @@ Inserta uno por uno los valores de la secuencia:
 
 Tareas:
 
-1. Dibujar el arbol final.
+1. Dibujar el árbol final.
 2. Indicar la ultima rotacion necesaria para restaurar el balance.
 3. Marcar los factores de balance de los nodos afectados.
 
@@ -193,6 +215,6 @@ Luego, elimina uno por uno los valores de la secuencia:
 
 Tareas:
 
-1. Dibujar el arbol despues de cada eliminacion.
+1. Dibujar el árbol despues de cada eliminacion.
 2. Indicar si aparece un desbalance y que rotacion se usa para corregirlo.
-3. Comparar el arbol resultante con el que se obtiene solo con inserciones.
+3. Comparar el árbol resultante con el que se obtiene solo con inserciones.

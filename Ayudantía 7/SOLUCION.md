@@ -1,13 +1,21 @@
-# Ayudantia 7: Soluciones
+# Ayudantía 7: Soluciones
+## Índice
 
-Esta carpeta contiene las soluciones paso a paso de los ejercicios planteados en la [Ayudantia 7](README.md).
+- [Ejercicio 1: leer un heap con indexacion 0-based](#ejercicio-1-leer-un-heap-con-indexacion-0based)
+- [Ejercicio 2: leer un heap con indexacion 1-based](#ejercicio-2-leer-un-heap-con-indexacion-1based)
+- [Ejercicio 3: HeapSort paso a paso con indexacion 0-based](#ejercicio-3-heapsort-paso-a-paso-con-indexacion-0based)
+- [Ejercicio 4: HeapSort paso a paso con indexacion 1-based](#ejercicio-4-heapsort-paso-a-paso-con-indexacion-1based)
+- [Ejercicio 5: HeapSort paso a paso con un arreglo un poco más grande](#ejercicio-5-heapsort-paso-a-paso-con-un-arreglo-un-poco-más-grande)
+
+
+Esta carpeta contiene las soluciones paso a paso de los ejercicios planteados en la [Ayudantía 7](README.md).
 
 La idea es mantener separado:
 
 - el bloque de enunciados, notas y consideraciones, en `README.md`;
 - el bloque de resoluciones desarrolladas, en este archivo.
 
-## Ejercicio 1: leer un heap con indexacion 0-based
+### Ejercicio 1: leer un heap con indexacion 0-based
 
 Arreglo dado:
 
@@ -21,7 +29,7 @@ int a[] = {19, 11, 17, 8, 10, 13, 15};
 - `left(i) = 2 * i + 1`;
 - `right(i) = 2 * i + 2`.
 
-### Paso 2: identificar el arbol
+### Paso 2: identificar el árbol
 
 ```text
                         19
@@ -39,7 +47,7 @@ int a[] = {19, 11, 17, 8, 10, 13, 15};
 
 El arreglo si representa un `max-heap`.
 
-## Ejercicio 2: leer un heap con indexacion 1-based
+### Ejercicio 2: leer un heap con indexacion 1-based
 
 Arreglo dado:
 
@@ -55,7 +63,7 @@ La posicion `0` queda vacia para trabajar con indices desde `1`.
 - `left(i) = 2 * i`;
 - `right(i) = 2 * i + 1`.
 
-### Paso 2: identificar el arbol
+### Paso 2: identificar el árbol
 
 ```text
                         20
@@ -73,7 +81,7 @@ La posicion `0` queda vacia para trabajar con indices desde `1`.
 
 El arreglo si representa un `max-heap`.
 
-## Ejercicio 3: HeapSort paso a paso con indexacion 0-based
+### Ejercicio 3: HeapSort paso a paso con indexacion 0-based
 
 Arreglo inicial:
 
@@ -99,7 +107,7 @@ Aplicamos `heapify-down` desde `i = 1` y luego desde `i = 0`:
 
 ### 2. Primera extraccion
 
-Intercambiamos la raiz con el ultimo elemento del heap activo:
+Intercambiamos la raíz con el ultimo elemento del heap activo:
 
 ```text
 [1, 5, 3, 4, 10]
@@ -139,7 +147,7 @@ Heap activo de tamano `2`.
 [1, 3, 4, 5, 10]
 ```
 
-## Ejercicio 4: HeapSort paso a paso con indexacion 1-based
+### Ejercicio 4: HeapSort paso a paso con indexacion 1-based
 
 Arreglo dado:
 
@@ -209,7 +217,7 @@ Heap construido:
 [1, 3, 4, 6, 7, 8]
 ```
 
-## Ejercicio 5: HeapSort paso a paso con un arreglo un poco mas grande
+### Ejercicio 5: HeapSort paso a paso con un arreglo un poco más grande
 
 Arreglo dado:
 
@@ -225,7 +233,7 @@ Partimos del arreglo original:
 [12, 11, 13, 5, 6, 7, 9, 25, 31, 26, 17, 14]
 ```
 
-Aplicando `heapify-down` desde el ultimo padre hasta la raiz, se obtiene:
+Aplicando `heapify-down` desde el ultimo padre hasta la raíz, se obtiene:
 
 ```text
 [31, 26, 14, 25, 17, 13, 9, 11, 5, 6, 12, 7]

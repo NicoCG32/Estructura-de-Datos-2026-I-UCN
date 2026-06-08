@@ -1,4 +1,19 @@
-# Ayudantía 6: Recorridos de árboles binarios
+# Ayudantía 6
+## Contenido
+
+- [Repaso teórico breve](#repaso-teorico-breve)
+- [Objetivo](#objetivo)
+- [Estructura base sugerida](#estructura-base-sugerida)
+- [Instrucciones generales](#instrucciones-generales)
+- [Árbol de referencia para probar recorridos](#árbol-de-referencia-para-probar-recorridos)
+- [Árbol implementado](#árbol-implementado)
+  - [Ejercicio único: implementar los recorridos](#ejercicio-unico-implementar-los-recorridos)
+  - [DFS directos](#dfs-directos)
+  - [BFS o recorrido por niveles](#bfs-o-recorrido-por-niveles)
+  - [Extra: BFS inverso](#extra-bfs-inverso)
+- [Salidas esperadas sobre el árbol de referencia](#salidas-esperadas-sobre-el-árbol-de-referencia)
+- [Cierre](#cierre)
+
 
 En esta ayudantía veremos solo recorridos de árboles binarios.
 
@@ -84,7 +99,7 @@ TreeNode* crearArbol() {
 
 ```
 
-## Ejercicio único: implementar los recorridos
+### Ejercicio único: implementar los recorridos
 
 Debes implementar los siguientes recorridos sobre el árbol dado por `root`.
 

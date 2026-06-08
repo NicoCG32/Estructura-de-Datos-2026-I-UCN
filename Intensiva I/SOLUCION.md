@@ -1,8 +1,8 @@
-﻿# Intensiva I: SOLUCION Ruta Intensiva I
+﻿# Intensiva I: Soluciones
 
-Este archivo contiene solo las soluciones de la Ruta Intensiva I, en orden.
+Breve: soluciones y explicaciones para los ejercicios listados en `README.md`.
 
-## Soluciones seleccionadas
+---
 
 ## Ejercicio I.3
 Código:
@@ -109,9 +109,9 @@ Justificación:
 
 ## Ejercicio VI.5
 ```cpp
-#include <stack>
-#include <string>
-#include <cctype>
+# include <stack>
+# include <string>
+# include <cctype>
 
 string decodeString(string s) {
     stack<int> nums;
@@ -255,11 +255,11 @@ Complejidad:
 - `ordenarRamosPorPromedio`: `O(r^2 * n)` si se recalcula el promedio en cada comparacion
 
 ## Ejercicio X.10
-Implementacion posible:
+Implementación posible:
 
 ```cpp
-#include <queue>
-#include <stack>
+# include <queue>
+# include <stack>
 
 const int n = 50;
 
@@ -359,7 +359,7 @@ Ambas guardan posiciones pendientes por explorar en el laberinto.
 - `queue<Pos>`: procesa por orden de llegada (FIFO).
 - `stack<Pos>`: procesa el ultimo agregado primero (LIFO).
 
-Por que ambas sirven para existencia de camino:
+Por qué ambas sirven para existencia de camino:
 
 Para responder solo si existe camino, no importa explorar por capas o por profundidad: basta con recorrer las celdas alcanzables sin repetirlas. Si en algun momento aparece una celda `E`, se retorna `true`.
 
@@ -376,10 +376,10 @@ Complejidad:
 - Espacio adicional: `O(filas * cols)` entre estructura auxiliar y matriz de visitados
 
 ## Ejercicio X.9
-Implementacion posible:
+Implementación posible:
 
 ```cpp
-#include <queue>
+# include <queue>
 
 struct Estado {
     int mIzq;
@@ -479,4 +479,3 @@ Complejidad:
 
 - Tiempo: `O(1)` respecto del tamaño fijo del problema `3-3`, o más generalmente `O(E)` si se piensa en el espacio de estados
 - Espacio adicional: `O(E)` para la cola y la tabla de visitados
-

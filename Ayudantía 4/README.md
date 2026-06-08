@@ -1,6 +1,18 @@
-# Ayudantía 4: Complejidad en algoritmos
+# Ayudantía 4
+## Contenido
 
-## Ejercicio 1: Suma de dos listas de dígitos
+  - [Ejercicio 1: Suma de dos listas de dígitos](#ejercicio-1-suma-de-dos-listas-de-digitos)
+- [Complejidad](#complejidad)
+  - [Complejidad en espacio](#complejidad-en-espacio)
+  - [Complejidad en tiempo](#complejidad-en-tiempo)
+  - [Ejercicio 2: Lectura de algoritmos, Listas, Pilas y Colas](#ejercicio-2-lectura-de-algoritmos-listas-pilas-y-colas)
+  - [Ejercicio 3: Interpretación de algoritmos](#ejercicio-3-interpretacion-de-algoritmos)
+  - [Ejercicio 4: Generar números binarios](#ejercicio-4-generar-numeros-binarios)
+  - [Ejercicio 5: Guardar estados](#ejercicio-5-guardar-estados)
+  - [Ejercicio 6: Más estados](#ejercicio-6-más-estados)
+
+
+### Ejercicio 1: Suma de dos listas de dígitos
 
 Problema de repaso:
 
@@ -77,14 +89,14 @@ Para medir tiempo, definimos una operación activa y contamos cuántas veces se 
     Ejemplo explicado: comparar todos contra todos con dos `for` anidados en un arreglo de n elementos hace aproximadamente n * n comparaciones.
 
 - O(k^n): crecimiento exponencial.
-    Ejemplo explicado: si en cada paso tienes k decisiones posibles y haces n pasos, el arbol de posibilidades tiene k^n caminos. Con k = 2 y n = 20 ya son 1.048.576 casos.
+    Ejemplo explicado: si en cada paso tienes k decisiones posibles y haces n pasos, el árbol de posibilidades tiene k^n caminos. Con k = 2 y n = 20 ya son 1.048.576 casos.
 
 - O(n!): crecimiento factorial.
-    Ejemplo explicado: en problemas de permutaciones (como probar todos los ordenes posibles de n tareas), para 5 elementos hay 120 casos, para 10 hay 3.628.800. Crece mas rapido que cualquier polinomio.
+    Ejemplo explicado: en problemas de permutaciones (como probar todos los ordenes posibles de n tareas), para 5 elementos hay 120 casos, para 10 hay 3.628.800. Crece más rapido que cualquier polinomio.
 
 ---
 
-## Ejercicio 2: Lectura de algoritmos, Listas, Pilas y Colas
+### Ejercicio 2: Lectura de algoritmos, Listas, Pilas y Colas
 
 Implemente la función `filtrar_patron_multiple` que gestiona y reordena una secuencia de valores enteros basándose en dos patrones:
 
@@ -105,7 +117,7 @@ int filtrar_patron_multiple(queue<int> Q_datos, stack<int> P_frecuencia,
 
 ---
 
-## Ejercicio 3: Interpretación de algoritmos
+### Ejercicio 3: Interpretación de algoritmos
 
 En una línea de ensamblaje se reciben 2 tipos de piezas (**A** y **B**). Para poder armar un objeto se debe recibir una pieza **A** y luego una pieza **B** (no necesariamente de manera consecutiva pero sí en ese orden).
 
@@ -125,7 +137,7 @@ bool estadoLineaEnsamblaje(string linea);
 
 ---
 
-## Ejercicio 4: Generar números binarios
+### Ejercicio 4: Generar números binarios
 
 Problema:
 
@@ -146,13 +158,13 @@ Ejemplos de ejecución:
 
 ---
 
-## Ejercicio 5: Guardar estados
+### Ejercicio 5: Guardar estados
 
 Implemente una función que decodifique cadenas con el formato:
 ```text
 K[text]
 ```
-Donde `K` es un entero positivo y `text` se repite `K` veces.  
+Donde `K` es un entero positivo y `text` se repite `K` veces.
 La cadena puede contener **anidamiento**
 ```text
 Ej: K1[text1K2[text2K3...[...]]].
@@ -179,7 +191,7 @@ Consideraciones:
 
 ---
 
-## Ejercicio 6: Más estados
+### Ejercicio 6: Más estados
 
 Implemente una función que determine si una cadena `p2` puede obtenerse reordenando los caracteres de `p1`, es decir, si ambas son **anagramas**.
 

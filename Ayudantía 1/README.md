@@ -1,11 +1,23 @@
-# Ayudantía 1: Introducción a C++ y Punteros
+# Ayudantía 1
+## Contenido
+
+- [Ejercicios de Punteros](#ejercicios-de-punteros)
+  - [Ejercicio 1](#ejercicio-1)
+  - [Ejercicio 2](#ejercicio-2)
+  - [Ejercicio 3](#ejercicio-3)
+  - [Ejercicio 4](#ejercicio-4)
+  - [Ejercicio 5](#ejercicio-5)
+  - [Ejercicio 6](#ejercicio-6)
+  - [Ejercicio 7](#ejercicio-7)
+  - [Desafío](#desafio)
+
 
 ## Ejercicios de Punteros
 
 ### Ejercicio 1
 
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 int main() {
@@ -33,7 +45,7 @@ int main() {
 ### Ejercicio 2
 
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 int main() {
@@ -73,7 +85,7 @@ int main() {
 ### Ejercicio 3
 
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 int main() {
@@ -105,7 +117,7 @@ int main() {
 ### Ejercicio 4
 
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 int main() {
@@ -144,7 +156,7 @@ int main() {
 ### Ejercicio 5
 
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 void modificar(int* p) {
@@ -184,7 +196,7 @@ int main() {
 ### Ejercicio 6
 
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 int main() {
@@ -224,7 +236,7 @@ int main() {
 ### Ejercicio 7
 
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 void proceso1(int** pp, int* r) {
@@ -295,7 +307,7 @@ int main() {
 ### Desafío
 
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 void bloque1(int a[], int** pp) {

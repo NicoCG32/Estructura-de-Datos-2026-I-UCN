@@ -1,4 +1,13 @@
 # Ayudantía 4: Soluciones
+## Índice
+
+- [Ejercicio 1: Suma de dos listas de dígitos](#ejercicio-1-suma-de-dos-listas-de-dígitos)
+- [Ejercicio 2: filtrar_patron_multiple](#ejercicio-2-filtrarpatronmultiple)
+- [Ejercicio 3: estadoLineaEnsamblaje](#ejercicio-3-estadolineaensamblaje)
+- [Ejercicio 4: Generar binarios con queue STL](#ejercicio-4-generar-binarios-con-queue-stl)
+- [Ejercicio 5: Guardando estados](#ejercicio-5-guardando-estados)
+- [Ejercicio 6: Más estados](#ejercicio-6-más-estados)
+
 
 Estas soluciones están alineadas con los ejercicios del README.
 
@@ -20,7 +29,7 @@ struct Node {
 
 ---
 
-## Ejercicio 1: Suma de dos listas de dígitos
+### Ejercicio 1: Suma de dos listas de dígitos
 
 ```cpp
 Node* sumarListas(Node* l1, Node* l2) {
@@ -29,7 +38,7 @@ Node* sumarListas(Node* l1, Node* l2) {
 
 	int resto = 0;
 	while (l1 != nullptr || l2 != nullptr || resto > 0) {
-		
+
 		int a = 0;
 		if (l1 != nullptr) {
 			a = l1->data;
@@ -41,7 +50,7 @@ Node* sumarListas(Node* l1, Node* l2) {
 		}
 
 		int sum = a + b + resto;
-		
+
 		resto = sum / 10;
 		int value = sum % 10;
 
@@ -69,13 +78,13 @@ Complejidad:
 
 ---
 
-## Ejercicio 2: filtrar_patron_multiple
+### Ejercicio 2: filtrar_patron_multiple
 
 Nota: para que los cambios se reflejen fuera de la función, las estructuras se pasan por referencia.
 
 ```cpp
-#include <queue>
-#include <stack>
+# include <queue>
+# include <stack>
 
 int filtrar_patron_multiple(queue<int>& Q_datos, stack<int>& P_frecuencia,
                             queue<int>& Q_filtrada, int U, int F) {
@@ -137,11 +146,11 @@ Complejidad:
 
 ---
 
-## Ejercicio 3: estadoLineaEnsamblaje
+### Ejercicio 3: estadoLineaEnsamblaje
 
 ```cpp
-#include <stack>
-#include <string>
+# include <stack>
+# include <string>
 
 bool estadoLineaEnsamblaje(const string& linea) {
     stack<char> pendientes;
@@ -168,12 +177,12 @@ Complejidad:
 
 ---
 
-## Ejercicio 4: Generar binarios con queue STL
+### Ejercicio 4: Generar binarios con queue STL
 
 ```cpp
-#include <queue>
-#include <string>
-#include <vector>
+# include <queue>
+# include <string>
+# include <vector>
 
 vector<string> generarBinarios(int n) {
 	vector<string> salida;
@@ -203,8 +212,8 @@ Complejidad:
 Inciso: versión recursiva para comparar enfoques
 
 ```cpp
-#include <cctype>
-#include <string>
+# include <cctype>
+# include <string>
 using namespace std;
 
 string decodificarRec(const string& s, int& i) {
@@ -240,20 +249,20 @@ string decodeString_recursivo(string s) {
 }
 ```
 
-Complejidad (recursion):
+Complejidad (recursión):
 
 - Tiempo: O(n + |resultado|), porque repetir bloques domina el costo real
-- Espacio adicional: O(n + |resultado|), considerando pila de recursion y cadenas intermedias
+- Espacio adicional: O(n + |resultado|), considerando pila de recursión y cadenas intermedias
 Nota: Esto jamás entra como contenido, es sólo referencial
 
 ---
 
-## Ejercicio 5: Guardando estados
+### Ejercicio 5: Guardando estados
 
 ```cpp
-#include <iostream>
-#include <stack>
-#include <string>
+# include <iostream>
+# include <stack>
+# include <string>
 using namespace std;
 
 string decodeString_stack(string s) {
@@ -308,7 +317,7 @@ Complejidad:
 
 ---
 
-## Ejercicio 6: Más estados
+### Ejercicio 6: Más estados
 
 En el contexto de este curso, aquí sí tiene sentido usar una estructura de datos explícita aunque exista una solución más eficiente con conteo de frecuencias. La meta pedagógica es modelar el **estado de los caracteres aún disponibles** de `p1`.
 
@@ -322,8 +331,8 @@ Usaremos una `queue<char>` para guardar los caracteres de `p1` que todavía no h
 La cola representa el **estado restante** del problema: en cada paso contiene exactamente los caracteres de `p1` que siguen disponibles.
 
 ```cpp
-#include <queue>
-#include <string>
+# include <queue>
+# include <string>
 
 bool esAnagramaQueue(string p1, string p2) {
     if (p1.length() != p2.length()) {
@@ -378,8 +387,8 @@ Complejidad de la versión con `queue`:
 También puede resolverse con `stack`. En este caso, la pila representa los caracteres aún disponibles de `p1`, pero como solo permite acceder al tope, al buscar una coincidencia hay que desapilar temporalmente y luego reconstruir el estado con una pila auxiliar.
 
 ```cpp
-#include <stack>
-#include <string>
+# include <stack>
+# include <string>
 
 bool esAnagramaStack(string p1, string p2) {
     if (p1.length() != p2.length()) {

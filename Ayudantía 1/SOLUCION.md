@@ -1,10 +1,22 @@
-# Soluciones: Introducción a C++ y Punteros
+# Ayudantía 1: Soluciones
+## Índice
 
-## Ejercicio 1: Punteros Básicos
+- [Ejercicio 1: Punteros Básicos](#ejercicio-1-punteros-básicos)
+- [Ejercicio 2: Modificación a través de Punteros](#ejercicio-2-modificación-a-través-de-punteros)
+- [Ejercicio 3: Asignación Errónea de Puntero](#ejercicio-3-asignación-errónea-de-puntero)
+- [Ejercicio 4: Aritmética de Punteros](#ejercicio-4-aritmética-de-punteros)
+- [Ejercicio 5: Punteros en Funciones](#ejercicio-5-punteros-en-funciones)
+- [Ejercicio 6: Punteros a Punteros](#ejercicio-6-punteros-a-punteros)
+- [Ejercicio 7: Punteros a Punteros en Funciones](#ejercicio-7-punteros-a-punteros-en-funciones)
+
+
+Soluciones: Introducción a C++ y Punteros
+
+### Ejercicio 1: Punteros Básicos
 
 ### Código
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 int main() {
@@ -41,11 +53,11 @@ p = 0x[dirección de x]
 
 ---
 
-## Ejercicio 2: Modificación a través de Punteros
+### Ejercicio 2: Modificación a través de Punteros
 
 ### Código
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 int main() {
@@ -98,11 +110,11 @@ a = 15, b = 30, *p = 30
 
 ---
 
-## Ejercicio 3: Asignación Errónea de Puntero
+### Ejercicio 3: Asignación Errónea de Puntero
 
 ### Código
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 int main() {
@@ -138,11 +150,11 @@ int main() {
 
 ---
 
-## Ejercicio 4: Aritmética de Punteros
+### Ejercicio 4: Aritmética de Punteros
 
 ### Código
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 int main() {
@@ -202,11 +214,11 @@ int main() {
 
 ---
 
-## Ejercicio 5: Punteros en Funciones
+### Ejercicio 5: Punteros en Funciones
 
 ### Código
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 void modificar(int* p) {                // Función definida
@@ -258,11 +270,11 @@ y = 16
 
 ---
 
-## Ejercicio 6: Punteros a Punteros
+### Ejercicio 6: Punteros a Punteros
 
 ### Código
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 int main() {
@@ -313,7 +325,7 @@ y = 19
 
 ---
 
-## Ejercicio 7: Punteros a Punteros en Funciones
+### Ejercicio 7: Punteros a Punteros en Funciones
 
 ### Código
 ```cpp
@@ -437,7 +449,7 @@ z = 22
 
 ### Código
 ```cpp
-#include <iostream>
+# include <iostream>
 using namespace std;
 
 void bloque1(int a[], int** pp) {
