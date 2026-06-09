@@ -1,4 +1,11 @@
 # Ayudantía Estructura de Datos
+
+**Profesor de Cátedra:** Bastián Ruiz
+
+**Ayudante:** Pablo Guzmán
+
+**Período:** 2026 - I
+
 ## Contenido
 
 - [Introducción](#introduccion)
@@ -14,13 +21,9 @@
 - [Nota Importante: Transición desde Java](#nota-importante-transicion-desde-java)
   - [Memoria local, global y heap (aclaración clave)](#memoria-local-global-y-heap-aclaracion-clave)
 
+## Drive complementario de recopilación
 
-**Profesor de Cátedra:** Bastián Ruiz
-
-**Ayudante:** Pablo Guzmán
-
-**Período:** 2026 - I
-
+- [Drive Estructura de Datos UCN](https://drive.google.com/drive/u/1/folders/1FYQ9pW4oi6wDTOiPmnqvGxrakmT2eb6Y)
 
 ## Introducción
 
@@ -58,7 +61,6 @@ Las ayudantías del semestre se encuentran organizadas en las siguientes carpeta
 - **[Ayudantía 3](Ayudantía%203/README.md)** - Organización de archivos, Listas enlazadas y Stack 
 - **[Ayudantía 4](Ayudantía%204/README.md)** - Complejidad algorítmica, listas, pilas y colas
 - **[Ayudantía 5](Ayudantía%205/README.md)** - Repaso final antes de la PP1
-
 - **[Intensiva I](Intensiva%20I/README.md)** - Ruta seleccionada para la intensiva PP1
 
 ### PP2
