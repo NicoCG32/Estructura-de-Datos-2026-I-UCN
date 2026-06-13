@@ -104,6 +104,48 @@ Eliminacion:
 
 ---
 
+## Estructuras base generales
+
+Las siguientes estructuras se pueden reutilizar en los ejercicios que correspondan.
+
+### Nodo de árbol binario
+
+```cpp
+class TreeNode {
+public:
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+
+    TreeNode(int x) {
+        val = x;
+        left = nullptr;
+        right = nullptr;
+    }
+
+    ~TreeNode() {}
+};
+```
+
+### Nodo para lista enlazada de arcos
+
+```cpp
+class EdgeNode {
+public:
+    int source;
+    int destination;
+    EdgeNode* next;
+
+    EdgeNode(int source, int destination) {
+        this->source = source;
+        this->destination = destination;
+        this->next = nullptr;
+    }
+
+    ~EdgeNode() {}
+};
+```
+
 ## Ejercicio 3 - Árbol ABB: suma condicionada en rango
 
 Dado el siguiente árbol binario de búsqueda:
