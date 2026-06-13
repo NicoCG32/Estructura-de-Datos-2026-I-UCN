@@ -52,7 +52,7 @@ Las ayudantías del semestre se encuentran organizadas en las siguientes carpeta
 
 ### Compendio
 
-- **[Compendio](Compendio/README.md)** - Banco de ejercicios por temas y soluciones para la PP1
+- **[Compendio](Compendio/README.md)** - Banco de ejercicios por temas y soluciones para la PP1 y PP2
 
 ### PP1
 
@@ -69,6 +69,7 @@ Las ayudantías del semestre se encuentran organizadas en las siguientes carpeta
 - **[Ayudantía 7](Ayudantía%207/README.md)** - Heaps y HeapSort
 - **[Ayudantía 8](Ayudantía%208/README.md)** - Árboles AVL
 - **[Ayudantía 9](Ayudantía%209/README.md)** - Algoritmos recursivos e iterativos con árboles
+- **[Intensiva II](Intensiva%20II/README.md)** - Ruta seleccionada para la intensiva PP2
 
 ## Temario
 
